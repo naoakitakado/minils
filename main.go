@@ -36,7 +36,7 @@ func listDir(fsys fs.ReadDirFS, dir string, out io.Writer) error {
 		return err
 	}
 	for _, e := range entries {
-		_, err := out.Write([]byte(e.Name()))
+		_, err := out.Write([]byte(fmt.Sprintf("%s\n", e.Name())))
 		if err != nil {
 			return err
 		}
